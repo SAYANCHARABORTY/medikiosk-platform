@@ -1,0 +1,600 @@
+/* ==========================================================================
+   MEDIKIOSK — BESPOKE EDITORIAL CINEMATIC DESIGN SYSTEM
+   Mobile-Optimized & Single-Line Desktop Typography
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ROOT DESIGN TOKENS & TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+:root {
+  /* Font Families */
+  --font-sagull: 'Cormorant Garamond', 'Instrument Serif', Georgia, serif;
+  --font-lemon: 'Syne', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-human: 'Caveat', 'Comic Neue', 'Comic Sans MS', cursive;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Color Palette (Departing from generic medical blue) */
+  --c-warm-white: #FAF8F5;
+  --c-cream: #F3EFE6;
+  --c-sand: #ECE5D8;
+  --c-beige: #DFD7C7;
+  --c-charcoal: #111413;
+  --c-charcoal-light: #1A1F1D;
+  --c-charcoal-muted: #242B28;
+  
+  --c-teal: #1F3D38;
+  --c-teal-deep: #132724;
+  --c-teal-mid: #2A544D;
+  --c-teal-soft: #4F8077;
+  --c-teal-tint: #EEF5F3;
+
+  --c-cyan: #79BFBC;
+  --c-cyan-light: #E0F4F3;
+
+  --c-coral: #D96B50;
+  --c-coral-light: #FCEEEA;
+
+  --c-lavender: #8E8BAF;
+  --c-lavender-light: #F0EFF7;
+
+  --c-sage: #648880;
+  --c-sage-light: #EFF5F4;
+
+  --c-border: rgba(17, 20, 19, 0.10);
+  --c-border-light: rgba(255, 255, 255, 0.15);
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--c-warm-white);
+  color: var(--c-charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--c-warm-white);
+  line-height: 1.6;
+}
+
+/* Typography Classes */
+.font-sagull {
+  font-family: var(--font-sagull);
+}
+
+.font-lemon {
+  font-family: var(--font-lemon);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+}
+
+.font-human {
+  font-family: var(--font-human);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* --------------------------------------------------------------------------
+   2. SINGLE-LINE HEADINGS ON DESKTOP (USER DIRECTIVE)
+   -------------------------------------------------------------------------- */
+.heading-single-line {
+  font-family: var(--font-sagull);
+  color: var(--c-charcoal);
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+@media (min-width: 1024px) {
+  .heading-single-line {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1023px) {
+  .heading-single-line {
+    white-space: normal;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. HERO SECTION — PURE CINEMATIC EDGE-TO-EDGE VIDEO BACKGROUND
+   -------------------------------------------------------------------------- */
+.hero-wrapper {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #0B0E0D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fullscreen Background Video */
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  z-index: 1;
+  pointer-events: none;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Contrast Overlays */
+.hero-film-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 14, 13, 0.45) 0%,
+    rgba(11, 14, 13, 0.25) 45%,
+    rgba(11, 14, 13, 0.85) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(11, 14, 13, 0.65) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Hero Content Sitting Directly on Top */
+.hero-content-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1320px;
+  padding: 100px 24px 40px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-kicker-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--c-cyan);
+  font-family: var(--font-lemon);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Single-Line Desktop Hero Headline */
+.hero-headline {
+  font-family: var(--font-sagull);
+  font-size: clamp(2.4rem, 4.4vw, 5.2rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 1024px) {
+  .hero-headline {
+    white-space: nowrap;
+  }
+}
+
+.hero-headline em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--c-cyan);
+}
+
+.hero-subtext {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  max-width: 780px;
+  margin-bottom: 36px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.hero-buttons-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.hero-ticker-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-family: var(--font-lemon);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* --------------------------------------------------------------------------
+   4. FLOATING GLASS NAVBAR & MOBILE MENU
+   -------------------------------------------------------------------------- */
+.navbar-floating {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 16px 0;
+}
+
+.navbar-scrolled {
+  background: rgba(250, 248, 245, 0.96);
+  border-bottom: 1px solid rgba(17, 20, 19, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-transparent {
+  background: linear-gradient(180deg, rgba(11, 14, 13, 0.75) 0%, rgba(11, 14, 13, 0.15) 80%, transparent 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.nav-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-lemon);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transition: color 0.25s ease;
+  cursor: pointer;
+}
+
+/* Mobile Dropdown Menu */
+.mobile-nav-drawer {
+  background: #FAF8F5;
+  border-bottom: 1px solid var(--c-border);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-nav-link {
+  font-family: var(--font-lemon);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--c-charcoal);
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(17, 20, 19, 0.05);
+}
+
+/* --------------------------------------------------------------------------
+   5. SOPHISTICATED BUTTONS
+   -------------------------------------------------------------------------- */
+.btn-editorial-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: var(--c-warm-white);
+  color: var(--c-charcoal);
+  font-family: var(--font-lemon);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  padding: 16px 36px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+}
+
+.btn-editorial-primary:hover {
+  background-color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+.btn-editorial-glass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  font-family: var(--font-lemon);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-editorial-glass:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-teal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--c-teal);
+  color: #FFFFFF;
+  font-family: var(--font-lemon);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(31, 61, 56, 0.25);
+  text-decoration: none;
+}
+
+.btn-teal:hover {
+  background-color: var(--c-teal-mid);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(31, 61, 56, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   6. EDITORIAL SURFACES & SECTIONS
+   -------------------------------------------------------------------------- */
+.editorial-section {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.editorial-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.editorial-card {
+  background: #FFFFFF;
+  border-radius: 28px;
+  border: 1px solid var(--c-border);
+  box-shadow: 0 4px 24px -2px rgba(17, 20, 19, 0.04), 0 2px 6px -1px rgba(17, 20, 19, 0.02);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.editorial-card:hover {
+  border-color: rgba(31, 61, 56, 0.25);
+  box-shadow: 0 20px 48px -8px rgba(17, 20, 19, 0.09);
+  transform: translateY(-2px);
+}
+
+/* Doctor Handwritten Sticky Note */
+.doctor-note {
+  font-family: var(--font-human);
+  color: #1A365D;
+  background: #FEF9C3;
+  border-left: 5px solid #EAB308;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 2px 8px 24px rgba(0, 0, 0, 0.08);
+  transform: rotate(-1deg);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.doctor-note:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 2px 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Laser Scan Animation for OCR */
+@keyframes laserScan {
+  0% { top: 4%; opacity: 0.85; }
+  50% { opacity: 1; }
+  100% { top: 94%; opacity: 0.85; }
+}
+
+.animate-laser {
+  animation: laserScan 2.4s ease-in-out infinite alternate;
+}
+
+/* Waveform Pulse */
+@keyframes wavePulse {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+
+.wave-bar {
+  animation: wavePulse 1.1s ease-in-out infinite;
+}
+
+/* Section Header Badges & Titles */
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(31, 61, 56, 0.08);
+  color: var(--c-teal);
+  font-family: var(--font-lemon);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-sagull);
+  font-size: clamp(2.2rem, 3.8vw, 3.8rem);
+  line-height: 1.1;
+  font-weight: 400;
+  color: var(--c-charcoal);
+  margin-bottom: 16px;
+}
+
+@media (min-width: 1024px) {
+  .section-title.single-line {
+    white-space: nowrap;
+  }
+}
+
+.section-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  font-weight: 300;
+  color: #57605D;
+  line-height: 1.65;
+  max-width: 780px;
+}
+
+/* --------------------------------------------------------------------------
+   7. RESPONSIVE GRID SYSTEM (DESKTOP + MOBILE)
+   -------------------------------------------------------------------------- */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 28px;
+}
+
+.col-12 { grid-column: span 12; }
+.col-8  { grid-column: span 8; }
+.col-7  { grid-column: span 7; }
+.col-6  { grid-column: span 6; }
+.col-5  { grid-column: span 5; }
+.col-4  { grid-column: span 4; }
+.col-3  { grid-column: span 3; }
+
+/* Tablet Widths */
+@media (max-width: 1024px) {
+  .editorial-section { padding: 70px 0; }
+  .col-8, .col-7, .col-6, .col-5 { grid-column: span 12; }
+  .col-4, .col-3 { grid-column: span 6; }
+  .nav-links { display: none; }
+  .nav-status-ticker { display: none !important; }
+}
+
+/* Mobile Phone Widths (360px - 768px) */
+@media (max-width: 768px) {
+  .editorial-section { padding: 56px 0; }
+  .editorial-container { padding: 0 18px; }
+  .grid-12 { gap: 18px; }
+  .col-4, .col-3, .col-6, .col-7, .col-8, .col-12 { grid-column: span 12; }
+  
+  .hero-wrapper {
+    height: 100vh;
+    min-height: 600px;
+  }
+
+  .hero-content-container {
+    padding: 80px 16px 30px;
+  }
+
+  .hero-headline {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    white-space: normal !important;
+    line-height: 1.15;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 6.5vw, 2.4rem);
+    white-space: normal !important;
+    line-height: 1.2;
+  }
+
+  .hero-buttons-row {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    gap: 12px;
+  }
+
+  .btn-editorial-primary, .btn-editorial-glass, .btn-teal {
+    width: 100%;
+    padding: 14px 20px;
+  }
+
+  .editorial-card {
+    padding: 24px !important;
+    border-radius: 20px;
+  }
+
+  .doctor-note {
+    padding: 20px !important;
+  }
+
+  .hero-ticker-row {
+    gap: 10px;
+    font-size: 10px;
+  }
+}
